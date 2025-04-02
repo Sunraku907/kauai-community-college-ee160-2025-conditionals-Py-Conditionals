@@ -1,0 +1,71 @@
+var1=input("Type in any number : ") # Asking user for input
+
+def is_num(input_string): # Defining if user input was a number
+    try:
+        float(input_string)
+        return True
+    except ValueError:
+        return False
+
+def is_int(input_string): # Defining if user input was a integer
+    try:
+        int(input_string)
+        return True
+    except ValueError:
+        return False
+
+def is_even(input_string):
+    try:
+        int(input_string) % 2 == 0
+        return True
+
+        int(input_string) % 2 != 0
+        return False
+    
+    except ValueError:
+        return False
+
+def is_morethan10(input_string): # Defining if user input is < 10
+    try:
+        int(input_string) > 10
+        return True
+    except ValueError:
+        return False
+
+def is_prime(input_string):  # Function to check for prime numbers
+    n = int(input_string)
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+if is_num(var1): # Checking if input was a number
+    print("Yay! That was a number. Let's see if it's an integer.")
+
+    if is_int(var1):
+        print("Ooh it was an integer. I'm gonna check to see whether it's even or odd.")
+
+        if is_even(var1):
+            print("Okie it's an even number! But is it more than 10?")
+        else:
+            print("Ouch it's an odd number! But is it less than 10?")
+
+        if is_morethan10(var1):
+            print("Wow it is more than 10! One last check to see if it is a prime number.")
+
+            if is_prime(var1):
+                print("Yay! You picked an awesome prime number.")
+            else:
+                print("RIP that number wasn't even a prime one.")
+
+        else:
+            print("Haha you picked a small number")
+
+    else:
+        print("Oops! Try giving another number. Make it a whole number.")
+
+
+else:
+    print("Dang. That wasn't even a number lol")
